@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spider-Man Countdown</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    #timer {
+      font-size: 80px;
+      font-weight: bold;
+    }
+    .spidey {
+      font-size: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🕷️ Spider-Man Countdown 🕷️</h1>
+  <div class="spidey">🕸️</div>
+  <div id="timer"></div>
+  <div class="spidey">🕸️</div>
+
+  <script>
+    // Set countdown to 2 hours and 45 minutes
+    let timeLeft = (60); // in seconds
+
+    function updateTimer() {
+      let hours = Math.floor(timeLeft / 3600);
+      let minutes = Math.floor((timeLeft % 3600) / 60);
+      let seconds = timeLeft % 60;
+
+      document.getElementById("timer").innerHTML =
+        String(hours).padStart(2, '0') + ":" +
+        String(minutes).padStart(2, '0') + ":" +
+        String(seconds).padStart(2, '0');
+
+      if (timeLeft > 0) {
+        timeLeft--;
+      } else {
+        document.getElementById("timer").innerHTML = "💥 Time's Up, Spidey!";
+      }
+    }
+
+    // Start countdown
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
